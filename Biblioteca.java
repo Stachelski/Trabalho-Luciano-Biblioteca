@@ -1,10 +1,11 @@
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
+
 
 public class Biblioteca {
-    //BD em memória
     private List<Livro> acervo = new ArrayList<>();
-    
 
     public void adicionar(Livro livro) throws Exception{
         if (livro.getTitulo() == null || livro.getTitulo().isEmpty())
@@ -16,7 +17,7 @@ public class Biblioteca {
         acervo.add(livro);
     }
 
-    public List<Livro> pesquisarPorTitulo(String titulo){
+    public List<Livro> pesquisarPorTitulo(String titulo) {
         List<Livro> livrosEncontrados = new ArrayList<>();
 
         for (Livro livro : acervo) {
@@ -28,11 +29,13 @@ public class Biblioteca {
         return livrosEncontrados;
     }
 
-    public void removerPorTitulo(String titulo){
-        for (Livro livro : acervo) {
+    public void removerPorTitulo(String titulo) {
+        Iterator<Livro> iterator = acervo.iterator();
+        while (iterator.hasNext()) {
+            Livro livro = iterator.next();
             if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                acervo.remove(livro);
-                break;
+                iterator.remove();
+                return;
             }
         }
     }

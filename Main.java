@@ -95,14 +95,10 @@ public class Main {
     private static void removerPorTitulo() {
         System.out.print("Informe o título do livro a ser removido: ");
         String titulo = input.nextLine();
-        
-        try {
-            biblio.removerPorTitulo(titulo);
-            System.out.println("Livro removido com sucesso!");
-        } catch (Exception e) {
-            System.out.println("ERRO: " + e.getMessage());
-        }
+        biblio.removerPorTitulo(titulo);
+        System.out.println("Livro removido com sucesso!");
     }
+
 
     public static void main(String[] args) {
         String menu = """
@@ -130,12 +126,16 @@ public class Main {
                     break;
                 case 2:
                     listar();
+                    input.nextLine(); // Aguarda o usuário pressionar Enter antes de continuar
                     break;
+                
                 case 3:
                     pesquisarPorTitulo();
+                    input.nextLine();
                     break;
                 case 4:
                     removerPorTitulo();
+                    input.nextLine();
                     break;
                 default:
                     System.out.println("Opção inválida!!!");

@@ -3,6 +3,7 @@ public class Livro {
     private String autor;
     private int anoPublicacao;
     private int nPaginas;
+    
     public String getTitulo() {
         return titulo;
     }
